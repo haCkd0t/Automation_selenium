@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 @pytest.fixture
 def driver():
@@ -14,3 +15,6 @@ def driver():
 def wait(driver):
     return WebDriverWait(driver, 20)
 
+@pytest.fixture()
+def action(driver):
+    return ActionChains(driver)
