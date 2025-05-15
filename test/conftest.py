@@ -8,11 +8,16 @@ from selenium.webdriver.common.action_chains import ActionChains
 @pytest.fixture
 def driver():
     options = Options()
+    options.add_argument("--incognito")  # OR use a temp profile dir
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-save-password-bubble")
     prefs = {
         "download.default_directory": 'C:\\Users\\joke\\Downloads',
         "download.prompt_for_download": False,
         "directory_upgrade": True,
-        "safebrowsing.enabled": True
+        "safebrowsing.enabled": True,
     }
     options.add_experimental_option('prefs', prefs)
     driver = webdriver.Chrome(options=options)
@@ -28,3 +33,4 @@ def wait(driver):
 @pytest.fixture()
 def action(driver):
     return ActionChains(driver)
+
