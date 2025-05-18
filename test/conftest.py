@@ -49,3 +49,7 @@ def setup_logging():
         logger.setLevel(logging.INFO)
 
     return logger
+@pytest.fixture
+def mock_driver(mocker):
+    driver = mocker.Mock()
+    return driver

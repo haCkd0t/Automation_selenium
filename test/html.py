@@ -6,3 +6,6 @@ def test_html():
 def test_html_2():
     r = 3 + 0
     assert 11 == r , "Test Failed"
+
+
+#--html=name to generate the html report
